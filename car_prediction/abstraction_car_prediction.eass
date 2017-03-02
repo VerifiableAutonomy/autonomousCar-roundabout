@@ -1,0 +1,17 @@
+:abstraction: car
+
+:Initial Beliefs:
+
+// yards
+preferred_distance_to_exit(300)
+overtaking_at(200)
+
+:Initial Goals:
+
+:Plans:
+
++.received(:tell, B): {True} <- +B;
++.received(:perform, G): {True} <- +!G [perform];
+
+
++start : {True} <- assert_shared(obstacle);
