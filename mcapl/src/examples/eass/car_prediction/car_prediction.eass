@@ -1,0 +1,41 @@
+// plan 2 is based on prediction that a car in roundabout will leave in
+// first junction. This is the way an aggresive driver thinks
+// plan 4 is the same situation as plan 2 but this time the driver slows down
+// and dont maintain speed
+
+:name: car
+
+:Initial Beliefs:
+
+:Reasoning Rules:
+
+
+:Initial Goals:
+
+roundabout_drive [achieve]
+
+:Plans:
+
+// ========= plan 1 =========
++! roundabout_drive [achieve] : {~ B obstacle} <-
+								perf(maintain_speed);
+								
+// ========= plan 2 =========	a risky behaviour ---- aggresive driver								
++! roundabout_drive [achieve] : {B obstacle, B predict_exit_at_first_junction} <-
+								perf(maintain_speed), +ready_for_stop, +! check_prediction [achieve];
+// ========= plan 3 =========								
++! roundabout_drive [achieve] : {B obstacle, B exit_at_first_junction} <-
+								perf(maintain_speed);
+								
+// ========= plan 4 =========   a safe behaviour but slow ---- conservative driver								
++! roundabout_drive [achieve] : {B obstacle, B predict_exit_at_first_junction} <-
+								perf(speed_down);
+// ========= plan 5 =========								
++! roundabout_drive [achieve] : {~B obstacle, B predict_entry_to_roundabout} <-
+								perf(speed_down);
+// ========= plan 6 =========								
++! roundabout_drive [achieve] : {B obstacle} <-
+								perf(stop);
+								
++! check_prediction [achieve] : {B predict_exit_at_first_junction} <-
+								perf(updatePredictions);

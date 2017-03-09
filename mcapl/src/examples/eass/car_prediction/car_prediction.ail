@@ -1,0 +1,14 @@
+
+env = eass.car_prediction.RoundaboutEnv
+
+mas.agent.1.file = /src/examples/eass/car_prediction/car_prediction.eass
+mas.agent.1.builder = eass.EASSAgentBuilder
+mas.agent.1.name = car1
+
+mas.agent.2.file = /src/examples/eass/car_prediction/abstraction_car_prediction.eass
+mas.agent.2.builder = eass.EASSAgentBuilder
+mas.agent.2.name = abstraction_car1
+
+log.warning = ajpf.MCAPLAgent
+log.info = eass.mas.DafaultEnvironment,eass.car_perception.RoundaboutEnv
+//log.fine = ail.semantics.AILAgent,ail.syntax.EvaluationAndRuleBaseIterator

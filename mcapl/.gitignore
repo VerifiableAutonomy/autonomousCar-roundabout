@@ -1,0 +1,19 @@
+# Compiled Files # 
+*.class
+*.tokens
+bin/*
+
+# Test Outputs #
+bin/TEST*
+
+# Debugging Files #
+tmp/*
+
+# Replay Records #
+records/*
+
+# Version Control Files #
+*.orig
+*~
+/bin/
+/bin/

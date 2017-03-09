@@ -1,0 +1,22 @@
+:abstraction: car
+
+:Initial Beliefs:
+
+
+:Initial Goals:
+
+:Plans:
+
++.received(:tell, B): {True} <- +B;
++.received(:perform, G): {True} <- +!G [perform];
+
+// +start : {True} <- assert_shared(obstacle);
+
++obstacle(X): {0 < X} <- assert_shared(obstacle);
++predict_exit_at_first_junction(X): {0 < X} <- assert_shared(predict_exit_at_first_junction);
++exit_at_first_junction(X): {0 < X} <- assert_shared(exit_at_first_junction);
+
+	
++! maintain_speed [perform] : {True} <- maintain_speed;
++! speed_down [perform] : {True} <- speed_down;
++! stop [perform] : {True} <- stop;
